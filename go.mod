@@ -1,6 +1,5 @@
-module github.com/Qihoo360/doraemon/pkg
-
-replace github.com/Qihoo360/doraemon/pkg v0.0.0 => github.com/vipwangtian/doraemon/pkg v0.0.0
+module github.com/Qihoo360/doraemon
+replace github.com/Qihoo360/doraemon v0.0.0 github.com/vipwangtian/doraemon v0.0.0
 
 go 1.12
 
