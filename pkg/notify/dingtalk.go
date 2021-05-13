@@ -89,12 +89,12 @@ func dingTalkMsg2String(content common.Ready2Send, sendTime string, isRecover bo
 	msg = append(msg, "**基本信息**")
 	msg = append(msg, fmt.Sprintf("> - 告警时间: %s", sendTime))
 
-	if len(content.User) > 0 {
+	/*if len(content.User) > 0 {
 		msg = append(msg, "**告警人员**")
 		for _, u := range content.User {
 			msg = append(msg, fmt.Sprintf("> - %s", u))
 		}
-	}
+	}*/
 
 	msg = append(msg, "**详细指标**")
 	for _, i := range content.Alerts {
@@ -107,11 +107,11 @@ func dingTalkMsg2String(content common.Ready2Send, sendTime string, isRecover bo
 		}
 		msg = append(msg, "---")
 	}
-	/*if len(content.Alerts[0].Description) > 0 {
+	if len(content.Alerts[0].Description) > 0 {
 		msg = append(msg, "**具体描述**")
 		msg = append(msg, fmt.Sprintf("> **消息**: %s", content.Alerts[0].Description))
 		msg = append(msg, "---")
-	}*/
+	}
 	if !isRecover {
 		msg = append(msg, fmt.Sprintf("[点击确认告警](%s/alerts_confirm/%d?start=%d)", beego.AppConfig.String("WebUrl"), content.RuleId, content.Start))
 	}

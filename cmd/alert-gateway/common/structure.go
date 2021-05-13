@@ -98,6 +98,7 @@ type SingleAlert struct {
 	Count    int               `json:"count"`
 	Value    float64           `json:"value"`
 	Summary  string            `json:"summary"`
+	Description string         `json:"description"`
 	Hostname string            `json:"hostname"`
 	Labels   map[string]string `json:"labels"`
 }

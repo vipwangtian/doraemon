@@ -183,6 +183,7 @@ func putToAlertMap(alertMap map[int][]common.SingleAlert, ug common.UserGroup, a
 					Value:    alert.Value,
 					Summary:  alert.Summary,
 					Hostname: alert.Hostname,
+					Description:  alert.Description,
 					Labels:   alert.getLabelMap(),
 				})
 			}

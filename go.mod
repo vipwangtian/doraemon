@@ -1,8 +1,11 @@
-module github.com/Qihoo360/doraemon
+module github.com/Qihoo360/doraemon/pkg
+
+replace github.com/Qihoo360/doraemon/pkg v0.0.0 => github.com/vipwangtian/doraemon/pkg v0.0.0
 
 go 1.12
 
 require (
+	github.com/Qihoo360/doraemon v0.0.0-20201215111925-6f9869b1c145
 	github.com/astaxie/beego v1.12.1
 	github.com/go-kit/kit v0.9.0
 	github.com/go-ldap/ldap v3.0.3+incompatible
