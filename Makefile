@@ -4,7 +4,7 @@ gateway.url = "default"
 MAKEFLAGS += --warn-undefined-variables
 
 # Build variables
-REGISTRY_URI :=360cloud
+REGISTRY_URI :=vipwangtian
 RELEASE_VERSION :=$(shell git describe --always --tags)
 UI_BUILD_VERSION :=v1.0.0
 SERVER_BUILD_VERSION :=v1.0.0

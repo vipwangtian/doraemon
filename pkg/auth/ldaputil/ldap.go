@@ -2,7 +2,7 @@ package ldaputil
 
 import (
 	"fmt"
-	"github.com/Qihoo360/doraemon/cmd/alert-gateway/logs"
+	"github.com/vipwangtian/doraemon/cmd/alert-gateway/logs"
 	"github.com/go-ldap/ldap"
 	"github.com/pkg/errors"
 )

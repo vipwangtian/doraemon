@@ -5,9 +5,9 @@ import (
 
 	"github.com/astaxie/beego"
 
-	"github.com/Qihoo360/doraemon/cmd/alert-gateway/common"
-	"github.com/Qihoo360/doraemon/cmd/alert-gateway/logs"
-	"github.com/Qihoo360/doraemon/cmd/alert-gateway/models"
+	"github.com/vipwangtian/doraemon/cmd/alert-gateway/common"
+	"github.com/vipwangtian/doraemon/cmd/alert-gateway/logs"
+	"github.com/vipwangtian/doraemon/cmd/alert-gateway/models"
 )
 
 type UserController struct {
