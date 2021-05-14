@@ -6,7 +6,7 @@ COPY cmd/alert-gateway .
 
 COPY go.mod /go/src/github.com/vipwangtian/doraemon
 
-COPY go.sum /go/src/github.com/Qihvipwangtiano360/doraemon
+COPY go.sum /go/src/github.com/vipwangtian/doraemon
 
 RUN export GO111MODULE=on && \
     export GOPROXY=https://goproxy.cn && \

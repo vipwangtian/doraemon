@@ -377,6 +377,7 @@ func (u *Alerts) AlertsHandler(alert *common.Alerts) {
 					const AlertStatusOff = 0
 					if elemt.State == AlertStatusOff {
 						// handle the recover message
+						logs.Alertloger.Info("recover message:%v",  a)
 						recoverAlert(*a, Cache)
 					} else {
 						Ormer().Raw("UPDATE alert SET summary=?,description=?,value=? WHERE rule_id =? AND labels=? AND fired_at=?", elemt.Annotations.Summary, elemt.Annotations.Description, elemt.Value, a.ruleId, a.label, a.firedAt).Exec()
