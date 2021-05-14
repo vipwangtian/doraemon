@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"github.com/vipwangtian/doraemon/cmd/alert-gateway/logs"
 	"github.com/vipwangtian/doraemon/pkg/auth/ldaputil"
-	"github.com/vipwangtian/beego"
+	"github.com/astaxie/beego"
 
 	"github.com/vipwangtian/doraemon/cmd/alert-gateway/common"
 	"github.com/vipwangtian/doraemon/cmd/alert-gateway/models"
