@@ -74,6 +74,7 @@ func post2DingTalk(url string, secret string, msg *DingTalkMsg) {
 		logs.Error(fmt.Sprintf("Marshal the dingTalk msg: %v err: %v\n", msg, err))
 		return
 	}
+	logs.Alertloger.Info("DingTalk message:%s", message)
 	// ignore DingTalk response for now
 	_, _ = common.HttpPost(addr.String(), nil, common.GenerateJsonHeader(), message)
 }
