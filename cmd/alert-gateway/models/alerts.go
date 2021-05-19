@@ -459,6 +459,7 @@ func recoverAlert(a alertForQuery, cache map[int64][]common.UserGroup) {
 	o.Begin()
 	err := o.Raw("SELECT id,count,hostname From alert WHERE rule_id =? AND labels=? AND fired_at=? FOR UPDATE", a.ruleId, a.label, a.firedAt).QueryRow(&recoverInfo)
 	if err == nil {
+		logs.Alertloger.Info("recoverInfo.Id:%s", recoverInfo.Id)
 		if recoverInfo.Id != 0 {
 			// update alert state
 			_, err = o.Raw("UPDATE alert SET status=?,summary=?,description=?,value=?,resolved_at=? WHERE id=?", a.State, a.Annotations.Summary, a.Annotations.Description, a.Value, a.ResolvedAt, recoverInfo.Id).Exec()
@@ -473,7 +474,7 @@ func recoverAlert(a alertForQuery, cache map[int64][]common.UserGroup) {
 					}
 					Ormer().Raw("SELECT plan_id,summary FROM rule WHERE id=?", a.ruleId).QueryRow(&planId)
 					if _, ok := cache[planId.PlanId]; !ok {
-						Ormer().Raw("SELECT id,start_time,end_time,start,period,reverse_polish_notation,user,`group`,duty_group,method FROM plan_receiver WHERE plan_id=? AND (method='LANXIN' OR method LIKE 'HOOK %')", planId.PlanId).QueryRows(&userGroupList)
+						Ormer().Raw("SELECT id,start_time,end_time,start,period,reverse_polish_notation,user,`group`,duty_group,method FROM plan_receiver WHERE plan_id=? AND (method='LANXIN' OR method LIKE 'HOOK %'  OR method LIKE 'DINGTALK %)", planId.PlanId).QueryRows(&userGroupList)
 						cache[planId.PlanId] = userGroupList
 					}
 					for _, element := range cache[planId.PlanId] {
