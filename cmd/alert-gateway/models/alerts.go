@@ -474,7 +474,7 @@ func recoverAlert(a alertForQuery, cache map[int64][]common.UserGroup) {
 					}
 					Ormer().Raw("SELECT plan_id,summary FROM rule WHERE id=?", a.ruleId).QueryRow(&planId)
 					if _, ok := cache[planId.PlanId]; !ok {
-						Ormer().Raw("SELECT id,start_time,end_time,start,period,reverse_polish_notation,user,`group`,duty_group,method FROM plan_receiver WHERE plan_id=? AND (method='LANXIN' OR method LIKE 'HOOK %'  OR method LIKE 'DINGTALK %)", planId.PlanId).QueryRows(&userGroupList)
+						Ormer().Raw("SELECT id,start_time,end_time,start,period,reverse_polish_notation,user,`group`,duty_group,method FROM plan_receiver WHERE plan_id=? AND (method='LANXIN' OR method LIKE 'HOOK %'  OR method LIKE 'DINGTALK %')", planId.PlanId).QueryRows(&userGroupList)
 						cache[planId.PlanId] = userGroupList
 					}
 					for _, element := range cache[planId.PlanId] {
