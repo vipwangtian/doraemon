@@ -241,11 +241,13 @@ func init() {
 				Sender(ready2send, now)
 				common.Lock.Lock()
 				recover2send := common.Recover2Send
+				logs.Alertloger.Info("recover2send len1:%v", len(recover2send))
 				common.Recover2Send = map[string]map[[2]int64]*common.Ready2Send{
 					common.AlertMethodLanxin: {},
 					//"HOOK":   map[[2]int64]*common.Ready2Send{},
 				}
 				common.Lock.Unlock()
+				logs.Alertloger.Info("recover2send len2:%v", len(recover2send))
 				logs.Alertloger.Info("Recoveries to send:%v", recover2send)
 				RecoverSender(recover2send, now)
 			}()
