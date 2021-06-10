@@ -106,6 +106,16 @@ func dingTalkMsg2String(content common.Ready2Send, sendTime string, isRecover bo
 			msg = append(msg, fmt.Sprintf("> - 故障主机: %s", i.Hostname))
 
 		}
+
+		if len(i.Labels) > 0 {
+			var label_str []string
+			for label_key, label_value := range i.Labels {
+				if label_key != "job" && label_key != "instance" {
+					label_str = append(label_str, fmt.Sprintf("%s:%s", label_key, label_value))
+				}
+			}
+			msg = append(msg, fmt.Sprintf("> - Labels: %s", strings.Join(label_str, ",")))
+		}
 		msg = append(msg, "---")
 	}
 	if len(content.Alerts[0].Description) > 0 {
